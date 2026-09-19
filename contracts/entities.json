@@ -1,0 +1,19 @@
+{
+  "schema_version": "1",
+  "domain": "河湟非遗体验传播授权",
+  "required_fields": [
+    "heritage_ref",
+    "inheritor_ref",
+    "session_ref",
+    "artifact_ref",
+    "translation_revision",
+    "media_scope"
+  ],
+  "time_format": "ISO 8601 with offset",
+  "sample": {
+    "heritage_ref": "CRAFT-DEMO",
+    "inheritor_ref": "PERSON-A",
+    "session_ref": "SESSION-A",
+    "media_scope": "event-report"
+  }
+}
