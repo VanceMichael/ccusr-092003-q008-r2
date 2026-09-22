@@ -1,12 +1,15 @@
 
-import os
-import sqlite3
-from pathlib import Path
+from app import db
 
 
-database_path = Path(os.getenv("DATABASE_PATH", "data/app.sqlite3"))
-database_path.parent.mkdir(parents=True, exist_ok=True)
-sql = Path("migrations/001_bootstrap.sql").read_text(encoding="utf-8")
-with sqlite3.connect(database_path) as connection:
-    connection.executescript(sql)
-print(f"数据库迁移完成：{database_path}")
+def main() -> None:
+    conn = db.connect()
+    applied = db.migrate(conn)
+    conn.commit()
+    if applied:
+        print("应用迁移：" + ", ".join(applied))
+    print(f"数据库迁移完成：{db.default_database_path()}")
+
+
+if __name__ == "__main__":
+    main()

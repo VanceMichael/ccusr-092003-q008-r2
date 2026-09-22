@@ -1,6 +1,263 @@
 {
-  "heritage_ref": "CRAFT-DEMO",
-  "inheritor_ref": "PERSON-A",
-  "session_ref": "SESSION-A",
-  "media_scope": "event-report"
+  "scenario": "西宁非遗馆河湟银铜器交流活动：同一段演示视频被两家媒体上传",
+  "note": "全部为不含真实身份的引用编号。时间为带偏移量 ISO 8601，sha256 为素材内容摘要。",
+  "projects": [
+    {
+      "ref": "SILVER-COPPER",
+      "name": "河湟银铜器锻制技艺",
+      "public_summary": "河湟银铜器锻制技艺是以手工锻打、錾刻制作藏族银铜器的传统技艺。西宁非遗馆交流活动以体验演示形式介绍其基本工序与文化背景。"
+    }
+  ],
+  "inheritors": [
+    {
+      "ref": "PERSON-WANG",
+      "heritage_ref": "SILVER-COPPER",
+      "public_name": "王师傅（传承人代号）",
+      "allowed_scopes": ["event-report", "exhibition-display", "archive-internal"],
+      "full_process_allowed": false,
+      "portrait_allowed": true,
+      "notes": "允许新闻报道与馆内展陈；完整工序仅公开摘要，不允许公开关键配比与淬火细节。"
+    }
+  ],
+  "sessions": [
+    {
+      "ref": "SESSION-XINING",
+      "heritage_ref": "SILVER-COPPER",
+      "inheritor_ref": "PERSON-WANG",
+      "title": "西宁非遗馆银铜器锻制体验交流场",
+      "venue": "西宁非遗馆二层体验厅",
+      "occurred_at": "2026-09-20T10:00:00+08:00"
+    }
+  ],
+  "process_steps": [
+    {
+      "heritage_ref": "SILVER-COPPER",
+      "step_no": 1,
+      "name": "熔料开坯",
+      "public_summary": "将银铜原料熔化后锻成毛坯，现场展示外观与基本手法。"
+    },
+    {
+      "heritage_ref": "SILVER-COPPER",
+      "step_no": 2,
+      "name": "关键淬火与錾刻",
+      "public_summary": "传承人演示錾刻花纹与器物成形。涉及控温与配比的关键工序仅作概述，不公开完整操作。",
+      "restricted_detail": "【受限】淬火温度区间、合金配比与专属錾刻走线为传承人保留工序，仅馆内存档，不得对外公开。"
+    },
+    {
+      "heritage_ref": "SILVER-COPPER",
+      "step_no": 3,
+      "name": "打磨抛光",
+      "public_summary": "手工打磨抛光，完成器物表面处理，观众可体验打磨环节。"
+    }
+  ],
+  "attendees": [
+    {
+      "ref": "VISITOR-A",
+      "session_ref": "SESSION-XINING",
+      "public_label": "体验者甲",
+      "portrait_consent": "granted",
+      "consent_scopes": ["event-report"],
+      "consented_at": "2026-09-20T09:55:00+08:00"
+    },
+    {
+      "ref": "VISITOR-B",
+      "session_ref": "SESSION-XINING",
+      "public_label": "体验者乙",
+      "portrait_consent": "denied",
+      "consent_scopes": []
+    },
+    {
+      "ref": "VISITOR-C",
+      "session_ref": "SESSION-XINING",
+      "public_label": "体验者丙",
+      "portrait_consent": "granted",
+      "consent_scopes": ["event-report", "short-clip"],
+      "consented_at": "2026-09-20T09:57:00+08:00"
+    }
+  ],
+  "withdraw_attendees": ["VISITOR-C"],
+  "material_kits": [
+    {
+      "ref": "KIT-STANDARD",
+      "heritage_ref": "SILVER-COPPER",
+      "name": "银铜器体验标准材料包",
+      "public_note": "含体验用铜片、打磨工具与防护用品。",
+      "allowed_scopes": ["event-report", "exhibition-display", "archive-internal"]
+    }
+  ],
+  "session_kits": [
+    {"session_ref": "SESSION-XINING", "kit_ref": "KIT-STANDARD", "note": "本场实际发放 20 份"}
+  ],
+  "youth_works": [
+    {
+      "ref": "WORK-YOUTH-1",
+      "session_ref": "SESSION-XINING",
+      "youth_ref": "YOUTH-1",
+      "title": "青年学徒錾刻习作《草原纹小牌》",
+      "allowed_scopes": ["event-report"]
+    }
+  ],
+  "translations": [
+    {
+      "unit_ref": "TU-DEMO",
+      "revision": 1,
+      "heritage_ref": "SILVER-COPPER",
+      "session_ref": "SESSION-XINING",
+      "language_pair": "zh/en",
+      "source_text": "王师傅正在演示银器錾刻的基本走刀。",
+      "translated_text": "Master Wang is demonstrating the basic chiseling strokes on silver.",
+      "change_note": "初版口译"
+    },
+    {
+      "unit_ref": "TU-DEMO",
+      "revision": 2,
+      "heritage_ref": "SILVER-COPPER",
+      "session_ref": "SESSION-XINING",
+      "language_pair": "zh/en",
+      "source_text": "王师傅正在演示银片錾刻的基本走线，关键淬火部分不予展示。",
+      "translated_text": "Master Wang is demonstrating the basic tracing on silver sheet; the key quenching step is not shown.",
+      "change_note": "原文补充“不展示关键淬火”，译文同步修订，改动保持对应"
+    }
+  ],
+  "assets": [
+    {
+      "asset_ref": "ASSET-DEMO",
+      "sha256": "6500b71d0e1ee59ecb3a86ce30939e332d2396461d61ea8ba4dabc53e15779cf",
+      "kind": "video",
+      "title": "西宁非遗馆银铜器演示完整报道素材（不含受限工序）",
+      "session_ref": "SESSION-XINING",
+      "heritage_ref": "SILVER-COPPER",
+      "inheritor_ref": "PERSON-WANG",
+      "contains_full_process": false,
+      "technical_fingerprint": {"duration_seconds": 312, "resolution": "1920x1080"},
+      "uploads": [
+        {
+          "outlet_ref": "OUTLET-QINGHAI-DAILY",
+          "claimed_basis": "licensed",
+          "note": "持馆方报道许可上传"
+        },
+        {
+          "outlet_ref": "OUTLET-CITY-POST",
+          "claimed_basis": "on-site-assumption",
+          "note": "误以为现场拍摄即可公开完整工序与参与者肖像，未取得许可"
+        }
+      ],
+      "links": {
+        "attendee_refs": ["VISITOR-A"],
+        "youth_work_refs": ["WORK-YOUTH-1"],
+        "material_kit_refs": ["KIT-STANDARD"],
+        "translation_unit_refs": ["TU-DEMO"]
+      }
+    },
+    {
+      "asset_ref": "ASSET-INTERNAL",
+      "sha256": "708490eb292b962995d31b902d7d3e9d7e44b8afa51d2a1ca5f9dfdf87486119",
+      "kind": "video",
+      "title": "含关键淬火配比的馆内存档素材",
+      "session_ref": "SESSION-XINING",
+      "heritage_ref": "SILVER-COPPER",
+      "inheritor_ref": "PERSON-WANG",
+      "contains_full_process": true,
+      "technical_fingerprint": {"duration_seconds": 588, "resolution": "3840x2160"},
+      "uploads": [
+        {
+          "outlet_ref": "OUTLET-ARCHIVE-INTERNAL",
+          "claimed_basis": "licensed",
+          "note": "仅馆内存档，不对外分发"
+        }
+      ],
+      "links": {}
+    },
+    {
+      "asset_ref": "ASSET-CLIP",
+      "sha256": "5c915eaacf109acad5564de08798628385a1dfc66d80f2c35cea695e926be8a9",
+      "kind": "video",
+      "title": "观众体验区混剪短视频",
+      "session_ref": "SESSION-XINING",
+      "heritage_ref": "SILVER-COPPER",
+      "inheritor_ref": "PERSON-WANG",
+      "contains_full_process": false,
+      "technical_fingerprint": {"duration_seconds": 47, "resolution": "1080x1920"},
+      "uploads": [
+        {
+          "outlet_ref": "OUTLET-QINGHAI-DAILY",
+          "claimed_basis": "licensed",
+          "note": "曾取得短期展陈与短视频授权"
+        }
+      ],
+      "links": {
+        "attendee_refs": ["VISITOR-B", "VISITOR-C"],
+        "youth_work_refs": ["WORK-YOUTH-1"],
+        "material_kit_refs": ["KIT-STANDARD"],
+        "translation_unit_refs": []
+      }
+    }
+  ],
+  "licenses": [
+    {
+      "license_ref": "LIC-QINGHAI-REPORT",
+      "asset_ref": "ASSET-DEMO",
+      "grantee_ref": "OUTLET-QINGHAI-DAILY",
+      "usage_scopes": ["event-report"],
+      "valid_from": "2026-09-19T00:00:00+08:00",
+      "valid_until": "2026-12-31T23:59:59+08:00",
+      "covers_full_process": false
+    },
+    {
+      "license_ref": "LIC-EXHIBIT-EXPIRED",
+      "asset_ref": "ASSET-CLIP",
+      "grantee_ref": "OUTLET-MUSEUM-DISPLAY",
+      "usage_scopes": ["exhibition-display"],
+      "valid_from": "2026-09-01T00:00:00+08:00",
+      "valid_until": "2026-09-10T23:59:59+08:00",
+      "covers_full_process": false
+    },
+    {
+      "license_ref": "LIC-ARCHIVE-INTERNAL",
+      "asset_ref": "ASSET-INTERNAL",
+      "grantee_ref": "OUTLET-ARCHIVE-INTERNAL",
+      "usage_scopes": ["archive-internal"],
+      "valid_from": "2026-09-20T00:00:00+08:00",
+      "valid_until": null,
+      "covers_full_process": true
+    }
+  ],
+  "usages": [
+    {
+      "usage_ref": "USAGE-QH-REPORT",
+      "asset_ref": "ASSET-DEMO",
+      "outlet_ref": "OUTLET-QINGHAI-DAILY",
+      "usage_type": "report",
+      "title": "《河湟银铜器走进西宁非遗馆》图文报道",
+      "channel": "青海日报客户端",
+      "first_published_at": "2026-09-21T09:00:00+08:00"
+    },
+    {
+      "usage_ref": "USAGE-CITY-REPORT",
+      "asset_ref": "ASSET-DEMO",
+      "outlet_ref": "OUTLET-CITY-POST",
+      "usage_type": "report",
+      "title": "同城自媒体《现场实录：银铜器全工序》",
+      "channel": "同城短视频号",
+      "first_published_at": "2026-09-21T12:00:00+08:00"
+    },
+    {
+      "usage_ref": "USAGE-EXHIBIT-EXPIRED",
+      "asset_ref": "ASSET-CLIP",
+      "outlet_ref": "OUTLET-MUSEUM-DISPLAY",
+      "usage_type": "exhibition",
+      "title": "馆内互动屏银铜器体验展项（授权已到期）",
+      "channel": "西宁非遗馆二层互动屏",
+      "first_published_at": "2026-09-02T10:00:00+08:00"
+    },
+    {
+      "usage_ref": "USAGE-CLIP-PORTRAIT",
+      "asset_ref": "ASSET-CLIP",
+      "outlet_ref": "OUTLET-CITY-POST",
+      "usage_type": "clip",
+      "title": "同城自媒体观众体验混剪（含未同意肖像）",
+      "channel": "同城短视频号",
+      "first_published_at": "2026-09-21T18:00:00+08:00"
+    }
+  ]
 }

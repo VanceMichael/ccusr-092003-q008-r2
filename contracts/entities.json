@@ -1,6 +1,44 @@
 {
-  "schema_version": "1",
+  "schema_version": "2",
   "domain": "河湟非遗体验传播授权",
+  "conventions": {
+    "identity": "所有业务主体使用不含真实身份信息的引用编号（*_ref）",
+    "time_format": "ISO 8601 with offset；无时区时间一律拒绝",
+    "raw_material": "原始材料不落库，仅保存受控引用与 sha256 摘要",
+    "media_identity": "媒体素材以 sha256 为唯一身份，重复上传归并为同一素材，许可只挂在素材身份上",
+    "facts": "场次、上传与判定流水为事实记录，授权到期或撤回均不删除"
+  },
+  "scope_vocabulary": [
+    "event-report",
+    "exhibition-display",
+    "short-clip",
+    "documentary",
+    "archive-internal"
+  ],
+  "usage_types": {
+    "report": "event-report",
+    "exhibition": "exhibition-display",
+    "clip": "short-clip",
+    "documentary": "documentary"
+  },
+  "entities": {
+    "heritage_project": ["ref", "name", "public_summary"],
+    "inheritor": ["ref", "heritage_ref", "public_name", "allowed_scopes", "full_process_allowed", "portrait_allowed"],
+    "session": ["ref", "heritage_ref", "inheritor_ref", "title", "venue", "occurred_at"],
+    "process_step": ["heritage_ref", "step_no", "name", "public_summary", "restricted_detail"],
+    "attendee": ["ref", "session_ref", "public_label", "portrait_consent", "consent_scopes", "consented_at", "withdrawn_at"],
+    "material_kit": ["ref", "heritage_ref", "name", "allowed_scopes", "public_note"],
+    "youth_work": ["ref", "session_ref", "youth_ref", "title", "allowed_scopes"],
+    "translation_unit": ["unit_ref", "revision", "language_pair", "source_text", "translated_text", "change_note"],
+    "media_asset": ["asset_ref", "sha256", "kind", "session_ref", "heritage_ref", "inheritor_ref", "contains_full_process"],
+    "media_upload": ["asset_ref", "outlet_ref", "claimed_basis", "uploaded_at"],
+    "license": ["license_ref", "asset_ref", "grantee_ref", "usage_scopes", "valid_from", "valid_until", "status", "covers_full_process"],
+    "media_usage": ["usage_ref", "asset_ref", "outlet_ref", "usage_type", "title", "channel", "status"],
+    "distribution_decision": ["usage_ref", "asset_ref", "decision", "reasons", "decided_at"]
+  },
+  "portrait_consent_values": ["granted", "denied", "withdrawn"],
+  "license_status_values": ["active", "withdrawn"],
+  "decision_values": ["allowed", "blocked", "taken-down"],
   "required_fields": [
     "heritage_ref",
     "inheritor_ref",
@@ -9,11 +47,11 @@
     "translation_revision",
     "media_scope"
   ],
-  "time_format": "ISO 8601 with offset",
   "sample": {
-    "heritage_ref": "CRAFT-DEMO",
-    "inheritor_ref": "PERSON-A",
-    "session_ref": "SESSION-A",
+    "heritage_ref": "SILVER-COPPER",
+    "inheritor_ref": "PERSON-WANG",
+    "session_ref": "SESSION-XINING",
+    "asset_ref": "ASSET-DEMO",
     "media_scope": "event-report"
   }
 }
