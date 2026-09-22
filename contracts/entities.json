@@ -1,19 +1,105 @@
 {
-  "schema_version": "1",
+  "schema_version": "2",
   "domain": "河湟非遗体验传播授权",
-  "required_fields": [
-    "heritage_ref",
-    "inheritor_ref",
-    "session_ref",
-    "artifact_ref",
-    "translation_revision",
-    "media_scope"
-  ],
-  "time_format": "ISO 8601 with offset",
-  "sample": {
-    "heritage_ref": "CRAFT-DEMO",
+  "conventions": {
+    "identity": "所有外部主体使用不含真实身份的引用编号（*_ref），不保存真实身份",
+    "time_format": "ISO 8601 with offset（必须带偏移量，系统内部按 UTC 比较）",
+    "material": "原始材料不入库，只保存受控引用（source_ref/translation_ref）或 64 位十六进制 sha256 指纹",
+    "facts": "场次、参与者、上传记录、审计事件只追加；许可撤回不删除活动事实"
+  },
+  "scopes": {
+    "event-report": "活动新闻报道范围（传承人同意 + 有效许可）",
+    "full-process": "完整工序公开范围（关键工序默认不授予；传承人同意 + 有效许可）",
+    "portrait": "参与者肖像范围（每个可识别参与者肖像同意 + 有效许可）",
+    "internal-archive": "仅馆内存档，永不用于公开发布"
+  },
+  "entities": {
+    "heritage_project": {
+      "key": "heritage_ref",
+      "fields": ["heritage_ref", "name", "summary"]
+    },
+    "inheritor_consent": {
+      "key": "inheritor_ref",
+      "fields": ["inheritor_ref", "heritage_ref", "allowed_scopes", "consent_note",
+                 "consented_at", "withdrawn_at"]
+    },
+    "session": {
+      "key": "session_ref",
+      "fields": ["session_ref", "heritage_ref", "inheritor_ref", "title",
+                 "occurred_at", "location_ref", "fact_note"]
+    },
+    "participant": {
+      "key": "session_ref + participant_ref",
+      "fields": ["session_ref", "participant_ref", "role", "portrait_consent"]
+    },
+    "material_kit": {
+      "key": "material_kit_ref",
+      "fields": ["material_kit_ref", "heritage_ref", "name", "contents_summary"]
+    },
+    "youth_work": {
+      "key": "work_ref",
+      "fields": ["work_ref", "session_ref", "creator_participant_ref", "material_kit_ref",
+                 "title", "public_summary", "display_permission"]
+    },
+    "process_document": {
+      "key": "doc_ref",
+      "fields": ["doc_ref", "heritage_ref", "session_ref", "stage_key", "title",
+                 "is_key_process", "public_summary"],
+      "rule": "is_key_process=true 时对公众仅返回 public_summary"
+    },
+    "document_revision_pair": {
+      "key": "doc_ref + seq",
+      "fields": ["doc_ref", "seq", "source_ref", "source_sha256", "change_note",
+                 "language", "translation_ref", "translation_sha256", "translator_ref"],
+      "rule": "原文每次修订必须与同 seq 译文同时登记，禁止无译文对应的原文改动"
+    },
+    "media_asset": {
+      "key": "asset_ref",
+      "fields": ["asset_ref", "fingerprint_sha256", "media_type", "title", "source_ref",
+                 "captured_at"],
+      "rule": "fingerprint_sha256 全局唯一；重复上传返回同一 asset_ref（deduped=true）"
+    },
+    "media_capture": {
+      "key": "capture_id",
+      "fields": ["asset_ref", "uploader_org", "uploaded_at", "note"],
+      "rule": "同一素材的每次上传各计一条记录，许可挂在素材而非上传"
+    },
+    "asset_link": {
+      "key": "asset_ref + target_kind + target_ref",
+      "target_kinds": ["heritage", "session", "inheritor", "participant", "work",
+                       "document", "material_kit"],
+      "rule": "参与者关联使用 session_ref/participant_ref 复合编号"
+    },
+    "media_grant": {
+      "key": "grant_ref",
+      "fields": ["grant_ref", "asset_ref", "grantee_org", "scope", "purpose_note",
+                 "authority", "granted_at", "valid_from", "expires_at", "status",
+                 "revoked_at", "revoke_reason"],
+      "rule": "有效 = status=active 且当前时刻落在 [valid_from, expires_at]；授予即核验同意基础"
+    },
+    "report": {
+      "key": "report_ref",
+      "fields": ["report_ref", "grantee_org", "asset_ref", "title", "location_ref",
+                 "required_scopes", "published_at", "status", "taken_down_at",
+                 "take_down_reason"]
+    },
+    "exhibit": {
+      "key": "exhibit_ref",
+      "fields": ["exhibit_ref", "grantee_org", "target_kind", "target_ref", "title",
+                 "venue_ref", "required_scopes", "status", "taken_down_at",
+                 "take_down_reason"],
+      "target_kinds": ["asset", "work", "document"]
+    },
+    "audit_event": {
+      "key": "event_id",
+      "fields": ["event_time", "actor", "action", "entity_kind", "entity_ref", "detail_json"]
+    }
+  },
+  "samples": {
+    "heritage_ref": "SILVER-COPPER-XINING",
     "inheritor_ref": "PERSON-A",
-    "session_ref": "SESSION-A",
-    "media_scope": "event-report"
+    "session_ref": "SESSION-XINING-20260920",
+    "media_scope": "event-report",
+    "fingerprint_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   }
 }

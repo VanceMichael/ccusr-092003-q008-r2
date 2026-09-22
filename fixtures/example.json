@@ -1,6 +1,256 @@
 {
-  "heritage_ref": "CRAFT-DEMO",
-  "inheritor_ref": "PERSON-A",
-  "session_ref": "SESSION-A",
-  "media_scope": "event-report"
+  "scenario": "西宁非遗馆河湟银铜器交流活动：同一段演示视频由两家媒体分别上传，仅一家取得报道许可",
+  "heritage": [
+    {
+      "heritage_ref": "SILVER-COPPER-XINING",
+      "name": "河湟银铜器锻制技艺",
+      "summary": "流传于河湟地区的银铜器手工锻制与錾刻技艺，为省级非物质文化遗产。"
+    }
+  ],
+  "inheritors": [
+    {
+      "inheritor_ref": "PERSON-A",
+      "heritage_ref": "SILVER-COPPER-XINING",
+      "allowed_scopes": ["event-report", "portrait"],
+      "consent_note": "允许活动报道与本人肖像公开；关键工序完整流程不对外公开。"
+    }
+  ],
+  "sessions": [
+    {
+      "session_ref": "SESSION-XINING-20260920",
+      "heritage_ref": "SILVER-COPPER-XINING",
+      "inheritor_ref": "PERSON-A",
+      "title": "银铜器锻制交流演示与公众体验",
+      "occurred_at": "2026-09-20T10:00:00+08:00",
+      "location_ref": "西宁非物质文化遗产馆-体验厅",
+      "fact_note": "交流活动已举办：传承人现场演示錾刻工艺，公众参与材料包体验。"
+    }
+  ],
+  "participants": [
+    {"session_ref": "SESSION-XINING-20260920", "participant_ref": "PERSON-B", "role": "体验者", "portrait_consent": true},
+    {"session_ref": "SESSION-XINING-20260920", "participant_ref": "PERSON-C", "role": "青年创作者", "portrait_consent": true},
+    {"session_ref": "SESSION-XINING-20260920", "participant_ref": "PERSON-D", "role": "口译员", "portrait_consent": false}
+  ],
+  "material_kits": [
+    {
+      "material_kit_ref": "KIT-BASIC-01",
+      "heritage_ref": "SILVER-COPPER-XINING",
+      "name": "银铜器錾刻体验材料包",
+      "contents_summary": "退火铜片、錾刻刀组、松香垫板与防护手套；不含核心焊药配比。"
+    }
+  ],
+  "youth_works": [
+    {
+      "work_ref": "WORK-C-01",
+      "session_ref": "SESSION-XINING-20260920",
+      "creator_participant_ref": "PERSON-C",
+      "material_kit_ref": "KIT-BASIC-01",
+      "title": "青年习作：河湟纹样铜书签",
+      "public_summary": "青年创作者使用体验材料包完成的錾刻纹样铜书签。",
+      "display_permission": true
+    }
+  ],
+  "documents": [
+    {
+      "doc": {
+        "doc_ref": "DOC-KEY-WELD",
+        "heritage_ref": "SILVER-COPPER-XINING",
+        "session_ref": "SESSION-XINING-20260920",
+        "stage_key": "key-welding",
+        "title": "银铜器关键焊接工序记录",
+        "is_key_process": true,
+        "public_summary": "关键工序：传承人以传统火候控制完成银铜件焊接。完整温控曲线、焊药配比与手法仅在馆内存档，对外只提供本摘要。"
+      },
+      "revisions": [
+        {
+          "source_ref": "受控原件://doc-key-weld/v1",
+          "source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "change_note": "首版整理",
+          "translations": [
+            {
+              "language": "en",
+              "translation_ref": "受控译文://doc-key-weld/en/v1",
+              "translation_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "translator_ref": "PERSON-D"
+            }
+          ]
+        },
+        {
+          "source_ref": "受控原件://doc-key-weld/v2",
+          "source_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "change_note": "按口译修订意见校正火候描述，英文译文同序号对应更新",
+          "translations": [
+            {
+              "language": "en",
+              "translation_ref": "受控译文://doc-key-weld/en/v2",
+              "translation_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "translator_ref": "PERSON-D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc": {
+        "doc_ref": "DOC-OPEN-POLISH",
+        "heritage_ref": "SILVER-COPPER-XINING",
+        "session_ref": "SESSION-XINING-20260920",
+        "stage_key": "polishing",
+        "title": "表面抛光体验指引",
+        "is_key_process": false,
+        "public_summary": "体验环节：使用打磨条顺纹理轻抛，避免在同一位置反复用力。"
+      },
+      "revisions": [
+        {
+          "source_ref": "受控原件://doc-open-polish/v1",
+          "source_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+          "change_note": "初版",
+          "translations": [
+            {
+              "language": "en",
+              "translation_ref": "受控译文://doc-open-polish/en/v1",
+              "translation_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+              "translator_ref": "PERSON-D"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset": {
+        "asset_ref": "ASSET-DEMO-VIDEO",
+        "fingerprint_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "media_type": "video",
+        "title": "银铜器演示完整视频（含关键工序与体验者画面）",
+        "source_ref": "馆方采集母带://demo-20260920",
+        "captured_at": "2026-09-20T10:05:00+08:00"
+      },
+      "captures": [
+        {"uploader_org": "西宁广电", "note": "取得报道许可的官方上传"},
+        {"uploader_org": "某自媒体", "note": "误以为现场拍摄即可公开完整工序与参与者肖像"}
+      ],
+      "links": [
+        {"target_kind": "heritage", "target_ref": "SILVER-COPPER-XINING"},
+        {"target_kind": "session", "target_ref": "SESSION-XINING-20260920"},
+        {"target_kind": "inheritor", "target_ref": "PERSON-A"},
+        {"target_kind": "participant", "target_ref": "SESSION-XINING-20260920/PERSON-B"},
+        {"target_kind": "participant", "target_ref": "SESSION-XINING-20260920/PERSON-C"},
+        {"target_kind": "document", "target_ref": "DOC-KEY-WELD"},
+        {"target_kind": "document", "target_ref": "DOC-OPEN-POLISH"},
+        {"target_kind": "work", "target_ref": "WORK-C-01"},
+        {"target_kind": "material_kit", "target_ref": "KIT-BASIC-01"}
+      ],
+      "duplicate_uploads": [
+        {
+          "asset_ref": "ASSET-DEMO-VIDEO-COPY",
+          "fingerprint_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "media_type": "video",
+          "title": "某自媒体二次上传的同一演示视频",
+          "source_ref": "自媒体账号上传://reup-demo-20260920",
+          "captured_at": "2026-09-20T10:05:00+08:00"
+        }
+      ]
+    },
+    {
+      "asset": {
+        "asset_ref": "ASSET-POLISH-CLIP",
+        "fingerprint_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "media_type": "video",
+        "title": "抛光体验环节短视频",
+        "source_ref": "馆方采集母带://polish-20260920",
+        "captured_at": "2026-09-20T11:20:00+08:00"
+      },
+      "captures": [
+        {"uploader_org": "西宁广电", "note": "体验环节花絮"}
+      ],
+      "links": [
+        {"target_kind": "heritage", "target_ref": "SILVER-COPPER-XINING"},
+        {"target_kind": "session", "target_ref": "SESSION-XINING-20260920"},
+        {"target_kind": "document", "target_ref": "DOC-OPEN-POLISH"}
+      ],
+      "duplicate_uploads": []
+    }
+  ],
+  "grants": [
+    {
+      "grant_ref": "GRANT-XNRG-REPORT",
+      "ref_or_fingerprint": "ASSET-DEMO-VIDEO",
+      "grantee_org": "西宁广电",
+      "scope": "event-report",
+      "purpose_note": "西宁非遗馆交流活动新闻报道",
+      "authority": "馆方权利管理员",
+      "valid_from": "2026-09-19T00:00:00+08:00",
+      "expires_at": "2026-10-31T23:59:59+08:00"
+    },
+    {
+      "grant_ref": "GRANT-XNRG-POLISH",
+      "ref_or_fingerprint": "ASSET-POLISH-CLIP",
+      "grantee_org": "西宁广电",
+      "scope": "event-report",
+      "purpose_note": "体验环节花絮报道",
+      "authority": "馆方权利管理员",
+      "valid_from": "2026-09-19T00:00:00+08:00",
+      "expires_at": "2026-10-31T23:59:59+08:00"
+    }
+  ],
+  "reports": [
+    {
+      "report_ref": "REPORT-XNRG-01",
+      "grantee_org": "西宁广电",
+      "ref_or_fingerprint": "ASSET-DEMO-VIDEO",
+      "title": "河湟银铜器技艺走进西宁非遗馆",
+      "location_ref": "西宁广电网/时政频道",
+      "required_scopes": ["event-report"]
+    }
+  ],
+  "exhibits": [
+    {
+      "exhibit_ref": "EXHIBIT-WORK-C-01",
+      "grantee_org": "西宁非遗馆",
+      "target_kind": "work",
+      "target_ref": "WORK-C-01",
+      "title": "青年作品展区：河湟纹样铜书签",
+      "venue_ref": "西宁非物质文化遗产馆-二层青年展区",
+      "required_scopes": ["event-report"]
+    },
+    {
+      "exhibit_ref": "EXHIBIT-POLISH-01",
+      "grantee_org": "西宁广电",
+      "target_kind": "asset",
+      "target_ref": "ASSET-POLISH-CLIP",
+      "title": "体验区抛光演示",
+      "venue_ref": "馆厅互动屏",
+      "required_scopes": ["event-report"]
+    }
+  ],
+  "blocked_attempts": [
+    {
+      "type": "grant",
+      "payload": {
+        "grant_ref": "GRANT-SELF-FULL",
+        "ref_or_fingerprint": "ASSET-DEMO-VIDEO",
+        "grantee_org": "某自媒体",
+        "scope": "full-process",
+        "purpose_note": "声称现场拍摄即可公开完整工序",
+        "authority": "无",
+        "valid_from": "2026-09-19T00:00:00+08:00",
+        "expires_at": "2026-10-31T23:59:59+08:00"
+      },
+      "expect": "传承人未允许 full-process，授予即被拒绝"
+    },
+    {
+      "type": "report",
+      "payload": {
+        "report_ref": "REPORT-SELF-01",
+        "grantee_org": "某自媒体",
+        "ref_or_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "title": "全网首发：银铜器绝密焊接全过程",
+        "location_ref": "自媒体短视频平台",
+        "required_scopes": ["event-report", "full-process"]
+      },
+      "expect": "同一素材无任何有效许可且超范围，分发被阻止"
+    }
+  ]
 }
